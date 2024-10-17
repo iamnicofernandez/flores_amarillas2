@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interactivo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <link rel="icon" href="{% static 'img/icon.png' %}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="{% static 'img/Nicolas.png' %}" alt="Nicolás" class="profile-pic">
+            <div class="header-info">
+                <h2>Nicolás</h2>
+                <p>En línea</p>
+            </div>
+        </div>
+
+        <div id="chat-window"></div>
+        <div id="options"></div>
+    </div>
+
+    <!-- Pasamos las rutas de las imágenes al archivo JavaScript -->
+    <script>
+        const nicolasImage = "{% static 'img/Nicolas.png' %}";
+        const mayImage = "{% static 'img/May.png' %}";
+    </script>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>

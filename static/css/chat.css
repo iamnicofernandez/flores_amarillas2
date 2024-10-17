@@ -1,0 +1,175 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #ece5dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #e5ddd5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Encabezado del chat (similar a WhatsApp) */
+.chat-header {
+    display: flex;
+    align-items: center;
+    background-color: #075e54;
+    padding: 10px;
+    color: #fff;
+}
+
+.chat-header .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.chat-header .header-info {
+    margin-left: 10px;
+}
+
+.chat-header h2 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.chat-header p {
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+/* Ventana de chat */
+#chat-window {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #ece5dd;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-image: url("{% static 'images/chat-background.png' %}");
+    background-size: cover;
+}
+
+/* Estilo de los mensajes */
+.message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.message span {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    max-width: 75%;
+    word-wrap: break-word;
+    position: relative;
+}
+
+/* Mensajes enviados */
+.message.sent {
+    justify-content: flex-end;
+}
+
+.message.sent span {
+    background-color: #dcf8c6;  /* Verde claro para mensajes enviados */
+    border-radius: 7.5px 7.5px 0 7.5px;  /* Redondeo de burbujas */
+}
+
+/* Mensajes recibidos */
+.message.received {
+    justify-content: flex-start;
+}
+
+.message.received span {
+    background-color: #ffffff;  /* Blanco para mensajes recibidos */
+    border: 1px solid #dcdcdc;
+    border-radius: 7.5px 7.5px 7.5px 0;
+}
+
+/* Perfil en los mensajes */
+.message img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message.sent .profile-pic {
+    margin-left: 10px;
+}
+
+.message.received .profile-pic {
+    margin-right: 10px;
+}
+
+/* Opciones */
+#options {
+    padding: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+
+#options button {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    background-color: #25d366;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#options button:hover {
+    background-color: #1da851;
+}
+
+#options button:focus {
+    background-color: #128c7e;
+    outline: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .chat-container {
+        max-width: 100%;
+        height: 100vh;
+    }
+
+    #chat-window {
+        padding: 5px;
+    }
+
+    .message span {
+        font-size: 13px;
+    }
+
+    #options button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
