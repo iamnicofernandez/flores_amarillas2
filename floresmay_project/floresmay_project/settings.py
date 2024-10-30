@@ -76,7 +76,7 @@ TEMPLATES = [
 # Configuración de archivos estáticos
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Solo si estás usando la estructura global
+    BASE_DIR / "static",  # Asegúrate de que esté correctamente configurado
 ]
 
 WSGI_APPLICATION = 'floresmay_project.wsgi.application'

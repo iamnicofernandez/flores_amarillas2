@@ -1,0 +1,207 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #ece5dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #e5ddd5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Encabezado del chat (similar a WhatsApp) */
+.chat-header {
+    display: flex;
+    align-items: center;
+    background-color: #075e54;
+    padding: 10px;
+    color: #fff;
+}
+
+.chat-header .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.chat-header .header-info {
+    margin-left: 10px;
+}
+
+.chat-header h2 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.chat-header p {
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+/* Ventana de chat */
+#chat-window {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #ece5dd;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+}
+
+/* Estilo de los mensajes */
+.message {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.message > span,
+.message > .sticker,
+.message > .typing-indicator {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    max-width: 75%;
+    word-wrap: break-word;
+    position: relative;
+}
+
+/* Mensajes enviados */
+.message.sent {
+    justify-content: flex-end;
+}
+
+.message.sent > span,
+.message.sent > .sticker,
+.message.sent > .typing-indicator {
+    background-color: #dcf8c6; /* Verde claro para mensajes enviados */
+    border-radius: 7.5px 7.5px 0 7.5px;
+    order: 1;
+}
+
+.message.sent img.profile-pic {
+    margin-left: 10px;
+    order: 2;
+}
+
+/* Mensajes recibidos */
+.message.received {
+    justify-content: flex-start;
+}
+
+.message.received > span,
+.message.received > .sticker,
+.message.received > .typing-indicator {
+    background-color: #ffffff; /* Blanco para mensajes recibidos */
+    border: 1px solid #dcdcdc;
+    border-radius: 7.5px 7.5px 7.5px 0;
+    order: 2;
+}
+
+.message.received img.profile-pic {
+    margin-right: 10px;
+    order: 1;
+}
+
+/* Perfil en los mensajes */
+.message img.profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Estilos para stickers */
+.message .sticker {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 10px;
+    padding: 0;
+}
+
+/* Estilos para el indicador de "Escribiendo..." */
+.typing-indicator {
+    font-style: italic;
+    color: #555; /* Color de texto para el indicador */
+}
+
+/* Opciones */
+#options {
+    padding: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar los botones */
+    border-top: 1px solid #ddd;
+}
+
+#options button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #25d366;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s; /* Para la animación de pulsación */
+}
+
+#options button:hover {
+    background-color: #1da851;
+}
+
+#options button:active {
+    transform: scale(0.95); /* Animación de pulsación */
+}
+
+#options button:focus {
+    outline: none;
+}
+
+/* Ajustes para mensajes largos */
+.message > span,
+.message > .typing-indicator {
+    word-break: break-word;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .chat-container {
+        max-width: 100%;
+        height: 100vh;
+    }
+
+    #chat-window {
+        padding: 5px;
+    }
+
+    .message > span,
+    .message > .typing-indicator {
+        font-size: 13px;
+    }
+
+    #options button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
